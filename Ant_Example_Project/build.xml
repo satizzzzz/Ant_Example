@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="createjar" name="Ant_Example_Project">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="C:/Eclipse-4.7.0/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="Ant_Example_Project.classpath">
+        <pathelement location="bin"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+          <javac srcdir ="${projectHome}/src" includes = "**/*.java" destdir="${projectHome}/bin"/>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+     <property name="projectHome" location="." />
+    <target name="createjar" depends="init">
+              	  <fileset dir="${ant.project.name}"/>
+              	    <jar destfile="${projectHome}/Ant_demo.jar" basedir="${projectHome}/bin" >
+              	    	<manifest>
+              	    	            <!-- create an executable Jar -->
+              	    	            <attribute name="Main-Jsp" value="com.example.hello" />
+              	    	            </manifest>
+              	    	</jar>
+              	 </target> 
+    
+</project>
